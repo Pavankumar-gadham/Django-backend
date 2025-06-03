@@ -148,7 +148,9 @@ CORS_ALLOWED_ORIGINS = [
     "https://angular-frontends.vercel.app",
 ]
 
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 
 REST_FRAMEWORK = {
