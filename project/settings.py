@@ -144,11 +144,15 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:4200",  # Use http if you’re not using SSL locally
+# ]
+
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",  # Use http if you’re not using SSL locally
+    "https://angular-frontends.vercel.app",
 ]
 
-
+CORS_ALLOW_CREDENTIALS = True
 
 
 REST_FRAMEWORK = {
