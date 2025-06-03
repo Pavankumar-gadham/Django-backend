@@ -22,6 +22,10 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from django.http import JsonResponse
+from django.urls import path
+
+
 
 urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
@@ -29,7 +33,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include('food.urls')),
     path("api/", include('orders.urls')),
-    path("api/", include('users.urls'))
+    path("api/", include('users.urls')),
+    path('', lambda request: JsonResponse({'status': 'Backend is live!'})),
 ]
 
 
