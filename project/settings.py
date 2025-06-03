@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-fs&9e0vrs0owuz9om((f@e(xkd!eb6l-!xbi&g-!c%vbfak0-)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -145,6 +145,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",  # Use http if you’re not using SSL locally
 ]
+
+
 
 
 REST_FRAMEWORK = {
