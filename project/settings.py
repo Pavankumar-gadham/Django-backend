@@ -54,7 +54,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     "django.middleware.security.SecurityMiddleware",
-    "users.middleware.LogOriginMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -145,10 +144,35 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-CORS_ALLOW_ALL_ORIGINS = True
+# settings.py
+
+# Disable wide-open access
+CORS_ALLOW_ALL_ORIGINS = False
+
+# Enable credentials (cookies, auth headers)
 CORS_ALLOW_CREDENTIALS = True
+
+# Explicit list of allowed origins (replace with your frontend URL)
 CORS_ALLOWED_ORIGINS = [
     "https://angular-frontends.vercel.app",
+]
+
+
+# Optional: allow specific HTTP methods if you want to be restrictive
+CORS_ALLOW_METHODS = [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS"
+]
+
+# Optional: allowed headers
+CORS_ALLOW_HEADERS = [
+    "content-type",
+    "authorization",
+    # add other headers your frontend might send
 ]
 
 
