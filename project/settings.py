@@ -144,10 +144,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:4200",  # Use http if you’re not using SSL locally
-# ]
-
 CORS_ALLOWED_ORIGINS = [
     "https://angular-frontends.vercel.app",
 ]
@@ -156,25 +152,19 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 REST_FRAMEWORK = {
-    
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-    
-}
-
-REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',  # Optional but recommended
-    ]
+        'rest_framework.permissions.AllowAny'
+    ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
-# settings.py
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),   # Increase from 5 to 30 mins
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),      # Optional: 7 days refresh
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),   
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),      
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,
     'AUTH_HEADER_TYPES': ('Bearer',),
