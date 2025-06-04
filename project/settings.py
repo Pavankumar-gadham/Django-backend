@@ -153,9 +153,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CORS_ALLOW_CREDENTIALS = True
 
 # Explicit list of allowed origins (replace with your frontend URL)
-CORS_ALLOWED_ORIGINS = [
-    "https://angular-frontends.vercel.app",
+# CORS_ALLOWED_ORIGINS = [
+#     "https://angular-frontends.vercel.app",
+# ]
+
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.vercel\.app$",
 ]
+
+
+CORS_REPLACE_HTTPS_REFERER = True
 
 
 CORS_ALLOW_HEADERS = [
@@ -203,5 +211,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 
+import logging
 
-
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console':{
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}
