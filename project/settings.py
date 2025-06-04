@@ -147,7 +147,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # settings.py
 
 # Disable wide-open access
-CORS_ALLOW_ALL_ORIGINS = False
+#CORS_ALLOW_ALL_ORIGINS = False
 
 # Enable credentials (cookies, auth headers)
 CORS_ALLOW_CREDENTIALS = True
