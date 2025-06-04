@@ -147,7 +147,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # settings.py
 
 # Disable wide-open access
-CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Enable credentials (cookies, auth headers)
 CORS_ALLOW_CREDENTIALS = True
@@ -158,25 +158,27 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-# Optional: allow specific HTTP methods if you want to be restrictive
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+# Optional: handle OPTIONS preflight
 CORS_ALLOW_METHODS = [
+    "DELETE",
     "GET",
+    "OPTIONS",
+    "PATCH",
     "POST",
     "PUT",
-    "PATCH",
-    "DELETE",
-    "OPTIONS"
 ]
-
-# Optional: allowed headers
-CORS_ALLOW_HEADERS = [
-    "content-type",
-    "authorization",
-    # add other headers your frontend might send
-]
-
-
-
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
